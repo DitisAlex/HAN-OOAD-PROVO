@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UitvoeringKennistoets {
-    private Kennistoets toets;
-    private LocalDateTime beginTijd;
-    private LocalDateTime eindTijd;
-    private int speeltijd;
     private int score;
     private List<GegevenAntwoord> gegevenAntwoorden = new ArrayList<>();
     private List<GegevenAntwoord> goedeAntwoorden = new ArrayList<>();
+    private int speeltijd;
+    private LocalDateTime beginTijd;
+    private LocalDateTime eindTijd;
+    private Kennistoets toets;
     private IScoreStrategy puntenStrategy = new NormalePuntentellingStrategy();
 
     public UitvoeringKennistoets(Kennistoets toets) {

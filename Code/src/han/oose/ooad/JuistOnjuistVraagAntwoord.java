@@ -6,6 +6,7 @@ public class JuistOnjuistVraagAntwoord extends Antwoord {
         super(antwoord);
     }
 
+    @Override
     public boolean isGegevenAntwoordCorrect(String gegevenAntwoord) {
         return antwoord.equalsIgnoreCase(gegevenAntwoord);
     }

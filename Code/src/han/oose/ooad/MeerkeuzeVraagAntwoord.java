@@ -14,6 +14,7 @@ public class MeerkeuzeVraagAntwoord extends Antwoord {
         System.out.println(optie + ": " + antwoord);
     }
 
+    @Override
     public boolean isGegevenAntwoordCorrect(String gegevenAntwoord) {
         return optie.equalsIgnoreCase(gegevenAntwoord) && isCorrect;
     }

@@ -2,13 +2,13 @@ package han.oose.ooad;
 
 public class NormalePuntentellingStrategy implements IScoreStrategy{
     @Override
-    public int berekenScore(int aantalGoedeVragen, int speeltijd) {
-        int maxTijdInSeconden = 15 * aantalGoedeVragen;
+    public int berekenScore(int goedeAntwoorden, int speeltijd) {
+        int maxTijdInSeconden = 15 * goedeAntwoorden;
 
-        if(aantalGoedeVragen > 0 && speeltijd < maxTijdInSeconden){
-            return aantalGoedeVragen + (Math.round(maxTijdInSeconden / 5));
+        if(goedeAntwoorden > 0 && speeltijd < maxTijdInSeconden){
+            return goedeAntwoorden + (Math.round(maxTijdInSeconden / 5));
         } else {
-            return aantalGoedeVragen;
+            return goedeAntwoorden;
         }
     }
 }
