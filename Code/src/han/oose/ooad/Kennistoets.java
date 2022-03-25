@@ -21,5 +21,5 @@ public class Kennistoets {
        getVraag(vraagnummer).displayVraag();
     }
 
-    public int getId(){ return id; };
+    public int getId(){ return id; }
 }

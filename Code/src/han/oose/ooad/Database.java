@@ -5,8 +5,8 @@ import java.util.List;
 
 
 public class Database {
-    private List<Student> studentList = new ArrayList<>();
-    private List<Vraag> vragenList = new ArrayList<>();
+    private final List<Student> studentList = new ArrayList<>();
+    private final List<Vraag> vragenList = new ArrayList<>();
 
     public Database(){
         genereerMockDatabase();
@@ -31,14 +31,7 @@ public class Database {
         MeerkeuzeVraagAntwoord v1a3 = new MeerkeuzeVraagAntwoord(false,"Donkey", "C");
         MeerkeuzeVraagAntwoord v1a4 = new MeerkeuzeVraagAntwoord(false,"Manatee", "D");
 
-        List<MeerkeuzeVraagAntwoord> vraag1Antwoorden = new ArrayList<>();
-        vraag1Antwoorden.add(v1a1);
-        vraag1Antwoorden.add(v1a2);
-        vraag1Antwoorden.add(v1a3);
-        vraag1Antwoorden.add(v1a4);
-
-        v1.setAntwoorden(vraag1Antwoorden);
-        vragenList.add(v1);
+        addAntwoorden(v1, v1a1, v1a2, v1a3, v1a4);
 
         // Vraag 2:
         MeerkeuzeVraag v2 = new MeerkeuzeVraag("In 2007, which film topped the list of the American Film Institute`s top 100 films of all time?");
@@ -47,14 +40,7 @@ public class Database {
         MeerkeuzeVraagAntwoord v2a3 = new MeerkeuzeVraagAntwoord(true,"Citizen Kane", "C");
         MeerkeuzeVraagAntwoord v2a4 = new MeerkeuzeVraagAntwoord(false,"Blade Runner", "D");
 
-        List<MeerkeuzeVraagAntwoord> vraag2Antwoorden = new ArrayList<>();
-        vraag2Antwoorden.add(v2a1);
-        vraag2Antwoorden.add(v2a2);
-        vraag2Antwoorden.add(v2a3);
-        vraag2Antwoorden.add(v2a4);
-
-        v2.setAntwoorden(vraag2Antwoorden);
-        vragenList.add(v2);
+        addAntwoorden(v2, v2a1, v2a2, v2a3, v2a4);
 
         // Vraag 3:
         KortAntwoordVraag v3 = new KortAntwoordVraag("Which is the only dwarf that never speaks in Snow White And The Seven Dwarfs?");
@@ -90,11 +76,18 @@ public class Database {
         return vragenList;
     }
 
+    private void addAntwoorden(MeerkeuzeVraag v1, MeerkeuzeVraagAntwoord v1a1, MeerkeuzeVraagAntwoord v1a2, MeerkeuzeVraagAntwoord v1a3, MeerkeuzeVraagAntwoord v1a4) {
+        List<MeerkeuzeVraagAntwoord> vraag1Antwoorden = new ArrayList<>();
+        vraag1Antwoorden.add(v1a1);
+        vraag1Antwoorden.add(v1a2);
+        vraag1Antwoorden.add(v1a3);
+        vraag1Antwoorden.add(v1a4);
+
+        v1.setAntwoorden(vraag1Antwoorden);
+        vragenList.add(v1);
+    }
+
     public boolean getLokalen(int lokaalnummer){
-        if(lokaalnummer == 123){
-            return true;
-        } else {
-            return false;
-        }
+        return lokaalnummer == 123;
     }
 }

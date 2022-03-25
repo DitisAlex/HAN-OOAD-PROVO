@@ -1,7 +1,6 @@
 package han.oose.ooad;
 
 import java.util.List;
-import java.util.Locale;
 
 public class KortAntwoordVraag extends Vraag {
     private List<KortAntwoordVraagAntwoord> antwoorden;

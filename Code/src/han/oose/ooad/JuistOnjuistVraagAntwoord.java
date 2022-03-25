@@ -7,10 +7,6 @@ public class JuistOnjuistVraagAntwoord extends Antwoord {
     }
 
     public boolean isGegevenAntwoordCorrect(String gegevenAntwoord) {
-        if (antwoord.equalsIgnoreCase(gegevenAntwoord)) {
-            return true;
-        } else {
-            return false;
-        }
+        return antwoord.equalsIgnoreCase(gegevenAntwoord);
     }
 }

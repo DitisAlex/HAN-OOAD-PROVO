@@ -1,7 +1,5 @@
 package han.oose.ooad;
 
-import java.util.List;
-
 public class JuistOnjuistVraag extends Vraag {
     private JuistOnjuistVraagAntwoord antwoord;
 
@@ -16,11 +14,7 @@ public class JuistOnjuistVraag extends Vraag {
 
     @Override
     public boolean isGegevenAntwoordCorrect(String gegevenAntwoord) {
-        if(antwoord.isGegevenAntwoordCorrect(gegevenAntwoord)) {
-            return true;
-        } else {
-            return false;
-        }
+        return antwoord.isGegevenAntwoordCorrect(gegevenAntwoord);
     }
 
     public void setAntwoord(JuistOnjuistVraagAntwoord antwoord) {
