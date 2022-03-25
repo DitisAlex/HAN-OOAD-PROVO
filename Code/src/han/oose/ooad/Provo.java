@@ -7,7 +7,6 @@ public class Provo {
     private static Database db = new Database();
 
     public static void main(String[] args) {
-        // ASCII Provo Logo :)
         System.out.println("""
 
                  .----------------.  .----------------.  .----------------.  .----------------.  .----------------.\s
@@ -23,26 +22,25 @@ public class Provo {
                  '----------------'   '----------  by Alex Cheng & Rowan Paul Flynn  ----------'  '---------------'\s
                 """);
 
-        // Vraagt gebruiker om gebruikersnaam & lokaal nummer
-        Scanner scanner = new Scanner(System.in);
 
+        Scanner scanner = new Scanner(System.in);
         System.out.println("\nUsername:");
         String naam = scanner.nextLine();
 
-        testInt();
+        checkRoomNumber();
 
-        if(naam.length() > 0 && db.getLokalen(lokaalNummer)){
+        if(naam.length() > 0 && db.checkLokaal(lokaalNummer)){
             System.out.println("\nAttempting to connect " + naam + " to room " + lokaalNummer + "...");
 
             Lokaal lokaal = new Lokaal(lokaalNummer);
             lokaal.meldAan(naam);
         } else {
             System.out.println("\nRoom doesn't exist, try again");
-            testInt();
+            checkRoomNumber();
         }
     }
 
-    public static void testInt(){
+    private static void checkRoomNumber(){
         System.out.println("\nRoom number:");
         Scanner scanner = new Scanner(System.in);
 
@@ -50,7 +48,7 @@ public class Provo {
             lokaalNummer = scanner.nextInt();
         } else {
             System.out.println("\nIncorrect value, try again");
-            testInt();
+            checkRoomNumber();
         }
     }
 }

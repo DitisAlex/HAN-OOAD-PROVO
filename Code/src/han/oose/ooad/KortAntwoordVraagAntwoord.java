@@ -6,6 +6,7 @@ public class KortAntwoordVraagAntwoord extends Antwoord {
         super(antwoord);
     }
 
+    @Override
     public boolean isGegevenAntwoordCorrect(String gegevenAntwoord) {
         return gegevenAntwoord.equalsIgnoreCase(antwoord);
     }

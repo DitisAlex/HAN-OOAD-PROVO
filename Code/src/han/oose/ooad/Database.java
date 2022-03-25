@@ -87,7 +87,7 @@ public class Database {
         vragenList.add(v1);
     }
 
-    public boolean getLokalen(int lokaalnummer){
+    public boolean checkLokaal(int lokaalnummer){
         return lokaalnummer == 123;
     }
 }
