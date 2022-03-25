@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class UitvoeringKennistoets {
@@ -21,13 +22,14 @@ public class UitvoeringKennistoets {
     }
 
     public void speelKennistoets() {
+        System.out.println("\nConnected to room " + toets.getId() + "...");
         beginTijd = getHuidigeTijd();
 
         for (int i = 0; i < toets.vragenAantal(); i++) {
             toets.displayVraag(i);
             Scanner scanner = new Scanner(System.in);
             String antwoord = scanner.nextLine();
-            GegevenAntwoord gegevenAntwoord = new GegevenAntwoord(antwoord, toets.getVraag(i));
+            GegevenAntwoord gegevenAntwoord = new GegevenAntwoord(antwoord.toUpperCase(), toets.getVraag(i));
             gegevenAntwoorden.add(gegevenAntwoord);
         }
 
@@ -40,11 +42,16 @@ public class UitvoeringKennistoets {
     }
 
     private void displayBehaaldeScore() {
-        System.out.print("Punten behaald: : " + score);
+        System.out.print("\nPunten behaald: " + score);
     }
 
     private LocalDateTime getHuidigeTijd() {
         return LocalDateTime.now();
+    }
+
+    private int getGespeeldeTijd() {
+        Duration speeltijd = Duration.between(beginTijd, eindTijd);
+        return (int) speeltijd.getSeconds();
     }
 
     private void controleerAntwoorden() {
@@ -53,11 +60,5 @@ public class UitvoeringKennistoets {
                 goedeAntwoorden.add(antwoord);
             }
         }
-    }
-
-    private int getGespeeldeTijd() {
-        Duration speeltijd = Duration.between(beginTijd, eindTijd);
-
-        return (int) speeltijd.getSeconds();
     }
 }

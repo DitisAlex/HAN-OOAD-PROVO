@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Provo {
     private static String naam;
     private static int lokaalNummer;
+    private static Database db = new Database();
 
     public static void main(String[] args) {
         // ASCII Provo Logo :)
@@ -27,19 +28,22 @@ public class Provo {
         System.out.println("\nUsername:");
         naam = scanner.nextLine();
 
-        System.out.println("\nRoom number:");
         testInt();
 
-        if(naam.length() > 0 && lokaalNummer >= 0){
+        if(naam.length() > 0 && db.getLokalen(lokaalNummer)){
             System.out.println("\nAttempting to connect " + naam + " to room " + lokaalNummer + "...");
 
-            Lokaal lokaal = new Lokaal();
-            lokaal.meldAan(naam, lokaalNummer);
+            Lokaal lokaal = new Lokaal(lokaalNummer);
+            lokaal.meldAan(naam);
+        } else {
+            System.out.println("\nRoom doesn't exist, try again");
+            testInt();
         }
     }
 
     //TODO: check if parseint exists in Java? idk man
     public static void testInt(){
+        System.out.println("\nRoom number:");
         Scanner scanner = new Scanner(System.in);
 
         if(scanner.hasNextInt()){

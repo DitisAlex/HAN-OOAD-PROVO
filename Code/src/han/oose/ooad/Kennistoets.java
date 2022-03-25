@@ -18,6 +18,8 @@ public class Kennistoets {
     }
 
     public void displayVraag(int vraagnummer) {
-        vragen.get(vraagnummer).displayVraag();
+       getVraag(vraagnummer).displayVraag();
     }
+
+    public int getId(){ return id; };
 }

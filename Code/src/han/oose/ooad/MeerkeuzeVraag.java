@@ -5,13 +5,13 @@ import java.util.List;
 public class MeerkeuzeVraag extends Vraag {
     private List<MeerkeuzeVraagAntwoord> antwoorden;
 
-    public MeerkeuzeVraag(String vraag, String a) {
+    public MeerkeuzeVraag(String vraag) {
         super(vraag);
     }
 
     @Override
     public void displayVraag() {
-        System.out.println(vraag);
+        System.out.println("\n[Vraag]: " +  vraag);
         for(MeerkeuzeVraagAntwoord antwoord : antwoorden) {
             antwoord.displayAntwoord();
         }
