@@ -3,6 +3,7 @@ package han.oose.ooad;
 import java.util.Scanner;
 
 public class Provo {
+    private static String naam;
     private static int lokaalNummer;
     private static Database db = new Database();
 
@@ -25,19 +26,9 @@ public class Provo {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nUsername:");
-        String naam = scanner.nextLine();
+        naam = scanner.nextLine();
 
         checkRoomNumber();
-
-        if(naam.length() > 0 && db.checkLokaal(lokaalNummer)){
-            System.out.println("\nAttempting to connect " + naam + " to room " + lokaalNummer + "...");
-
-            Lokaal lokaal = new Lokaal(lokaalNummer);
-            lokaal.meldAan(naam);
-        } else {
-            System.out.println("\nRoom doesn't exist, try again");
-            checkRoomNumber();
-        }
     }
 
     private static void checkRoomNumber(){
@@ -46,6 +37,16 @@ public class Provo {
 
         if(scanner.hasNextInt()){
             lokaalNummer = scanner.nextInt();
+
+            if(naam.length() > 0 && db.checkLokaal(lokaalNummer)){
+                System.out.println("\nAttempting to connect " + naam + " to room " + lokaalNummer + "...");
+
+                Lokaal lokaal = new Lokaal(lokaalNummer);
+                lokaal.meldAan(naam);
+            } else {
+                System.out.println("\nRoom doesn't exist, try again");
+                checkRoomNumber();
+            }
         } else {
             System.out.println("\nIncorrect value, try again");
             checkRoomNumber();

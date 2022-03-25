@@ -41,7 +41,7 @@ public class UitvoeringKennistoets {
     }
 
     private void displayBehaaldeScore() {
-        System.out.print("\nPoints acquired: " + score);
+        System.out.println("\nPoints acquired: " + score);
         System.out.println("\nTest finished...");
     }
 
