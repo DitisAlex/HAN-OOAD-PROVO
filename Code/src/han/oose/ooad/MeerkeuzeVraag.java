@@ -11,7 +11,7 @@ public class MeerkeuzeVraag extends Vraag {
 
     @Override
     public void displayVraag() {
-        System.out.println("\n[Vraag]: " +  vraag);
+        System.out.println("\n[Multiple Choice Question]: " +  vraag);
         for(MeerkeuzeVraagAntwoord antwoord : antwoorden) {
             antwoord.displayAntwoord();
         }

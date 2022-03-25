@@ -29,7 +29,7 @@ public class UitvoeringKennistoets {
             toets.displayVraag(i);
             Scanner scanner = new Scanner(System.in);
             String antwoord = scanner.nextLine();
-            GegevenAntwoord gegevenAntwoord = new GegevenAntwoord(antwoord.toUpperCase(), toets.getVraag(i));
+            GegevenAntwoord gegevenAntwoord = new GegevenAntwoord(antwoord, toets.getVraag(i));
             gegevenAntwoorden.add(gegevenAntwoord);
         }
 
@@ -42,7 +42,8 @@ public class UitvoeringKennistoets {
     }
 
     private void displayBehaaldeScore() {
-        System.out.print("\nPunten behaald: " + score);
+        System.out.print("\nPoints acquired: " + score);
+        System.out.println("\nTest finished...");
     }
 
     private LocalDateTime getHuidigeTijd() {
