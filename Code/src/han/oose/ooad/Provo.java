@@ -38,6 +38,7 @@ public class Provo {
         }
     }
 
+    //TODO: check if parseint exists in Java? idk man
     public static void testInt(){
         Scanner scanner = new Scanner(System.in);
 

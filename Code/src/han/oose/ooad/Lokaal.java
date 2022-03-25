@@ -12,13 +12,12 @@ public class Lokaal {
         if(lokaal == lokaalNummer){
             voegToeAanLokaal(naam);
 
-
             Kennistoets kennistoets = new Kennistoets(lokaalNummer, vragen);
             UitvoeringKennistoets nieuweToets = new UitvoeringKennistoets(kennistoets);
             //TODO: how to actually load uitvoeringKennisToets
             nieuweToets.speelKennistoets();
         } else {
-            // Betere error handling toevoegen dan alleen restarten (maybe room opnieuw kunnen invoeren zoals op provo.java?)
+            //TODO: Betere error handling toevoegen dan alleen restarten (maybe room opnieuw kunnen invoeren zoals op provo.java?)
             System.out.println("\nRoom doesn't exist, signing user out...");
         }
     }
